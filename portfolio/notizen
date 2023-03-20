@@ -1,0 +1,167 @@
+
+Das Programm hat drei Seiten:
+1. Login
+    WICHTIG: DIESE SEITE WIRD MIT <URL>/login AUFGERUFEN
+    Bei Fehler: Seite refreshen
+    Bei login: Session eröffnen als Admin + Weiterleitung in den Admin-Bereich (Seite 2)
+    (E-Mail und Passwort werden aus der Datenbank gezogen)
+
+    -if-abfrage, ob es session bereits gibt?
+
+
+2. "Eingelogged sein / Session"
+    Es gibt folgende Möglichkeiten:
+            //Beim Versuch, (diese URL oder eine andere [ab Seite 2]) ohne Login aufzurufen führt dazu, dass man zu Seite 1 weitergeleitet wird
+        -"Quiz anlegen" --> Leitet einen auf Seite 3 weiter
+        -"Logout" --> Führt zu Seite 1
+        -"Quiz löschen" --> Wenn bereits Quizze vorhanden sind, kann man diese Löschen. Ein Quiz wird mit Namen und Hashwert angezeigt
+
+
+
+3. Quiz erstellen
+    Folgendes wird eingegeben:
+        -Hashwert (Primary Key) (NOT NULL)
+        -Name des Quiz (NOT NULL)
+        -3 Fragen (NOT NULL) //NOT NULL bei Fragen und Antworten nicht ganz sicher (soll es möglich sein, ein Quiz mit nur einer Frage zu machen???)
+        -3 Antworten (NOT NULL)
+
+
+4. Quiz Löschen-Seite:
+    Wenn Ich auf "Quiz löschen" drücke, muss ich das nochmals bestätigen (kann aber auch abbrechen, wenn ich mich umentscheide)
+        --> Umleitung zu Seite 2
+        (Quiz wird gelöscht inklusive aller Fragen und Daten, die zum Quizeintrag in der Datenbank gehören)
+
+
+
+
+
+
+Am Ende: Videopräsentation, wo der Code vorgestellt wird
+    -alle usecases im Video
+        -Login mit richtigen Daten
+        -mit falschen
+
+        -Quiz erstellen
+        -Quiz löschen
+        -wird alles in der Datenbank gespeichert?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Konkretisierung:
+Welche Klassen:
+    1. Quiz
+        Attribute
+            Fragen
+            Antworten
+            Hashwert //hashcode muss selber erstellt werden + abfrage, ob bereits vorhanden, wenn ja --> erneut kreieren
+            Name
+
+        Methoden
+            Erstellen
+            Löschen
+
+    2. User?
+        Attribute
+            E-Mail
+            Passwort
+
+        Methoden:
+            Login
+            Logout //oder Teil der normalen Website?
+
+
+
+
+
+
+
+Datenbank finden:
+
+C:\Users\Melwin\Desktop\Studiumsordner\2. Semester\WebProg 2\01_WebProg2 - Vorlesung - 15.03.2022\portfolio
+
+
+
+
+Aufgaben:
+    sessions regeln
+    sachen stylen
+
+
+
+
+Klassen und Pages einheitlich benennen:
+    quiz_database_class
+    question_database_class
+    Seiten mit Page benennen
+
+
+Klasse für Login erstellen
+
+
+Code auskommentieren: was wird übergeben, was passiert, was wird ausgegben (BEI FUNKTIONEN)
+    Was bekommt die Funktion ggf. übergeben, was macht die Funktion und was gibt sie zurück
+    nur funktionen und klassen kommentieren
+
+
+
+
+
+Kommentierung auf englisch!
+
+
+checkSession überall?
+
+
+
+
+Vorstellungsvideo:
+
+Einmal Programm vorstellen, live zeigen was gespeichert wird
+
+edge-case:
+    login: falsches passwort
+    richtiges passwort
+
+
+
+create-quiz:
+    falscher quizname
+        auskommentiert.
+    richtiger quizname
+
+delete-quiz:
+    wie wird die quizvariable übertragen?
+
+
+
+
+aufbau:
+    ich arbeite jede seite nacheinander ab
+    als erstes edgecases
+    dann die richtige funktion
+    dann zeiche ich veränderung der datenbank
+    dann zeige ich den code
+
+
+
+   zunäcst das programm einmal durchlaufen
+
+   dabei alle funktionen testen
+
+   sofern dabei änderungen in der datenbank vollzogen werden, werde ich diese 
+   mit DB browser zeigen
+
+   anschließend zeige ich den code im generellem
+   und gehe dabei auch auf die verschiedenen edgecases ein. 
